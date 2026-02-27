@@ -46,7 +46,9 @@ public final class UiConfig {
 
     public static Image loadAppIcon() {
         URL url = UiConfig.class.getClassLoader().getResource("icon.png");
-        if (url == null) return null;
+        if (url == null) {
+            return null;
+        }
         return new ImageIcon(url).getImage();
     }
 }

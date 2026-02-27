@@ -17,7 +17,7 @@ public class GameEngine {
         this.state = new GameState();
     }
 
-    public GameState state() {
+    public GameState getState() {
         return state;
     }
 
@@ -41,7 +41,7 @@ public class GameEngine {
             return Messages.SURRENDERED;
         }
 
-        if (!repo.contains(input)) {
+        if (!repo.containsCity(input)) {
             return Messages.CITY_NOT_FOUND;
         }
 
@@ -55,7 +55,6 @@ public class GameEngine {
                     + Messages.WRONG_FIRST_LETTER_SUFFIX;
         }
 
-        // Human move OK
         state.addUsed(input);
         state.lastHumanCity(input);
         state.incHumanScore();

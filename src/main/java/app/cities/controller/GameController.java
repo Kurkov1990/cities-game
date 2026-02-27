@@ -41,18 +41,18 @@ public class GameController {
 
         syncViewFromState();
 
-        GameState state = engine.state();
-        if (state.result() != GameResult.IN_PROGRESS) {
+        GameState state = engine.getState();
+        if (state.getResult() != GameResult.IN_PROGRESS) {
             view.setGameEnabled(false);
 
-            String header = switch (state.result()) {
+            String header = switch (state.getResult()) {
                 case HUMAN_WON -> "Вітаємо! Ви перемогли 🎉";
                 case COMPUTER_WON -> "Гру завершено. Переміг комп’ютер 🤖";
                 default -> "Гру завершено.";
             };
 
             view.showGameOverDialog(
-                    Messages.gameOverDialogText(header, state.humanScore(), state.computerScore()),
+                    Messages.gameOverDialogText(header, state.getHumanScore(), state.getComputerScore()),
                     Messages.GAME_OVER_TITLE
             );
         }
@@ -70,10 +70,10 @@ public class GameController {
     }
 
     private void syncViewFromState() {
-        GameState state = engine.state();
-        view.setScore(state.humanScore(), state.computerScore());
+        GameState state = engine.getState();
+        view.setScore(state.getHumanScore(), state.getComputerScore());
 
-        String normalized = state.lastComputerCity();
+        String normalized = state.getLastComputerCity();
         view.setComputerCityNormalized(normalized.isEmpty() ? null : normalized);
     }
 }

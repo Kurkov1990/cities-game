@@ -23,7 +23,9 @@ public class GameView extends JFrame {
     public GameView(Image icon) {
         super(UiConfig.APP_TITLE);
 
-        if (icon != null) setIconImage(icon);
+        if (icon != null) {
+            setIconImage(icon);
+        }
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);

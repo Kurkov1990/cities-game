@@ -33,11 +33,11 @@ public class GameState {
     }
 
 
-    public int humanScore() {
+    public int getHumanScore() {
         return humanScore;
     }
 
-    public int computerScore() {
+    public int getComputerScore() {
         return computerScore;
     }
 
@@ -49,15 +49,6 @@ public class GameState {
         computerScore++;
     }
 
-
-    public boolean hasLastHumanCity() {
-        return !lastHumanCity.isEmpty();
-    }
-
-    public String lastHumanCity() {
-        return lastHumanCity;
-    }
-
     public void lastHumanCity(String normalizedCity) {
         this.lastHumanCity = normalizedCity == null ? "" : normalizedCity;
         if (phase == GamePhase.NOT_STARTED) {
@@ -65,11 +56,7 @@ public class GameState {
         }
     }
 
-    public boolean hasLastComputerCity() {
-        return !lastComputerCity.isEmpty();
-    }
-
-    public String lastComputerCity() {
+    public String getLastComputerCity() {
         return lastComputerCity;
     }
 
@@ -93,15 +80,11 @@ public class GameState {
         this.requiredFirstLetter = 0;
     }
 
-    public GamePhase phase() {
-        return phase;
-    }
-
     public boolean isFinished() {
         return phase == GamePhase.FINISHED;
     }
 
-    public GameResult result() {
+    public GameResult getResult() {
         return result;
     }
 

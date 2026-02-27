@@ -14,7 +14,9 @@ public class WelcomeView extends JFrame {
     public WelcomeView(Image icon) {
         super(Messages.WELCOME_TITLE);
 
-        if (icon != null) setIconImage(icon);
+        if (icon != null) {
+            setIconImage(icon);
+        }
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(400, 120);
